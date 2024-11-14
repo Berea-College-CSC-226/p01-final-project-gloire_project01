@@ -20,11 +20,12 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `What is the title of your project? Be creative! Replace this block of text.`
+❗️**Title**: `A simple dijital journal.`
 
-❗**Purpose**: `In a single sentence, describe WHAT your project will do. Replace this block of text.`
+❗**Purpose**: `The purpose of this project is to allow users to view, record and manage personal dairy entries.
+`
 
-❗️**Source Assignment(s)**: `List which original assignments you will base your project on? Replace this block of text.`
+❗️**Source Assignment(s)**: ` HW04,HW08, A bugs life and It's in your Genes.`
 
 ❗️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
