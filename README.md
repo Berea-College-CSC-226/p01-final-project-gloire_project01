@@ -5,9 +5,9 @@
 ❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
   they accompany. (This means that your final README should have no ❗️in it!)
 
-❗️**Author(s)**: Your name(s) here
+❗️**Author(s)**: Gloire Muzeba
 
-❗️**Google Doc Link**: Your link here
+❗️**Google Doc Link**: https://docs.google.com/document/d/1VAXEmijLQP8OcECUVZe1-UCG8IL0BPQBUsbisYUOipw/edit?usp=sharing
 
 ---
 
@@ -35,7 +35,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+![Don't leave me in your README!](image/crc1.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
 
 ❗️**Branches**: This project will **require** effective use of git. 
 
@@ -44,8 +44,8 @@ branch) as they work. When you need to bring each others branches together, do s
 into your own, following the process we've discussed in previous assignments: 
 
 ```
-    Branch 1 name: _____________
-    Branch 2 name: _____________
+    Branch 1 name: muzebag
+    Branch 2 name:
 ```
 ---
 
