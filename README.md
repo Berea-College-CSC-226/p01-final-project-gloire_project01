@@ -57,7 +57,8 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    **From what I have done its okay and I am feeling i'm behind. I am worried that I am not sure if I should continue with this or change the project. 
+    My feelings toward this project I am little bit anxious but I am feeling good at the same time because i have learn a lot so far and that will help me to finish this project.
 ```
 
 ---
