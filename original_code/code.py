@@ -33,6 +33,55 @@ class GameUI:
         tk.Button(self.window, text="Instructions", command=self.show_instructions, bg="#440c57", fg="white").pack(pady=5)
 
     def show_instructions(self):
+        messagebox.showinfo("How to Play", "Remove 1-4 balls per turn. Avoid removing the last ball!")
+
+    def reset_game(self):
+        self.remaining_balls = 0
+        self.canvas.delete("balls")
+        self.update_score()
+
+    def update_score(self):
+        self.score_label.config(text=f"Score:\nUser - {self.user_score}\ncomputer - {self.computer_score}")
+
+    def start_game(selfself):
+        try:
+            self.remaining_balls = int(self.balls_entry.get())
+            if self.remaining_balls < 15:
+                raise ValueError
+            Balls(self.canvas, self.remaining_balls).draw()
+            self.user_turn()
+        except ValueError:
+            messagebox.showerror("Error", "Enter a valid number(15 or higher).")
+
+    def user_turn(self):
+        def handle_turn():
+            try:
+                user_input = int(user_input_entry.get())
+                if not (1 <= user_input <=4):
+                    raise ValueError
+                self.remaining_balls -= user_input
+                turn_window.destroy()
+                self.update_game()
+            except ValueError:
+                messagebox.showerror("Error","Entry number between 1 and 4.")
+
+        turn_window = tk.Toplevel(self.window)
+        turn_window.title("Your Turn")
+        tk.Lebel(turn_window, text="How many balls to remove (1-4)?").pack(pady=5)
+        user_input_entry = tk.Entry(turn_window)
+        user_input_entry.pack(pady=5)
+        tk.Button(turn_window, text="Submit", command=handle_turn).pack(pady=5)
+
+    def computer_turn(self):
+        balls_to_remove = self.remaining_balls % 5 or random.radint(1, 4)
+        self.remaining_balls -= balls_to_remove
+        messagebox.showinfo("computer's Turn", f"computer removed{balls_to_remove}balls.")
+        self.update_game()
+
+
+
+
+
 
 
 
