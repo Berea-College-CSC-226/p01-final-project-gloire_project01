@@ -4,17 +4,20 @@ import random
 
 
 class GameWindow:
-
     def __init__(self):
-        self.window = tk.Tk
+        self.window = tk.Tk()
         self.window.title("Game of Nim")
         self.window.geometry("800x600")
         self.window.configure(bg="#e8ede9")
-        self.canvas = tk.canvas(self.window, width=600, height=300, bg="#faf5fa")
+        self.canvas = tk.Canvas(self.window, width=600, height=300, bg="#faf5fa")
+        self.canvas.pack(side=tk.LEFT, padx=5, pady=5)
+        self.font_default = ("Helvetica", 12)
+        self.font_title = ("Helvetica", 20)
 
     def start(self):
-        self.window.mainloop()
+       self.window.mainloop()
 class GameUI:
+
     def __init__(self, game_window):
         self.window = game_window.window
         self.canvas = game_window.canvas
@@ -43,7 +46,7 @@ class GameUI:
     def update_score(self):
         self.score_label.config(text=f"Score:\nUser - {self.user_score}\ncomputer - {self.computer_score}")
 
-    def start_game(selfself):
+    def start_game(self):
         try:
             self.remaining_balls = int(self.balls_entry.get())
             if self.remaining_balls < 15:
@@ -67,16 +70,58 @@ class GameUI:
 
         turn_window = tk.Toplevel(self.window)
         turn_window.title("Your Turn")
-        tk.Lebel(turn_window, text="How many balls to remove (1-4)?").pack(pady=5)
+        tk.Label(turn_window, text="How many balls to remove (1-4)?").pack(pady=5)
         user_input_entry = tk.Entry(turn_window)
         user_input_entry.pack(pady=5)
         tk.Button(turn_window, text="Submit", command=handle_turn).pack(pady=5)
 
     def computer_turn(self):
-        balls_to_remove = self.remaining_balls % 5 or random.radint(1, 4)
+        balls_to_remove = self.remaining_balls % 5 or random.randint(1, 4)
         self.remaining_balls -= balls_to_remove
         messagebox.showinfo("computer's Turn", f"computer removed{balls_to_remove}balls.")
         self.update_game()
+
+    def update_game(self):
+        Balls(self.canvas, self.remaining_balls).draw()
+        if self.remaining_balls <= 0:
+            if self.remaining_balls % 5:
+                self.user_score += 1
+                winner = "User"
+            else:
+                self.computer_score += 1
+                winner = "Computer"
+            self.update_score()
+            messagebox.showinfo("Game Over", f"{winner} wins!")
+        else:
+            self.computer_turn() if self.remaining_balls % 2 == 0 else self.user_turn()
+
+class Balls:
+    def __init__(self, canvas, total_balls):
+        self.canvas = canvas
+        self.total_balls = total_balls
+
+
+    def draw(self):
+        self.canvas.delete("balls")
+        for i in range(self.total_balls):
+            x = 20 + (i % 15) * 30
+            y = 20 + (i // 15) * 30
+            self.canvas.create_oval(x, y, x + 20, fill="#440c57", tags="balls")
+
+if __name__ == "__main__":
+    game_window = GameWindow()
+    game_ui = GameUI(game_window)
+    game_window.start()
+
+
+
+
+
+
+
+
+
+
 
 
 
