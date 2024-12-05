@@ -67,14 +67,17 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `0 - 100%`
+❗️**Completion Percentage**: `80%`
 
 ❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
 ```
-    **Replace this text with your reflection
+    I’m feeling pretty confident about finishing this project. The main functionality is there, but I still need to fix some bugs, 
+    clean up the UI. I plan to focus on testing and debugging first to make sure the game works smoothly. After that, I’ll refine the
+    UI and add any final touches, like improving the computer’s moves and maybe adding a replay option. I think with a bit more effort,
+    I’ll have it done on time
 ```
 
 ---
