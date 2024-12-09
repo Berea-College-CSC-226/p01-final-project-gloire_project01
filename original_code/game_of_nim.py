@@ -15,7 +15,9 @@ class GameWindow:
         self.font_title = ("Helvetica", 20)
 
     def start(self):
-       self.window.mainloop()
+        self.window.mainloop()
+
+
 class GameUI:
 
     def __init__(self, game_window):
@@ -25,15 +27,17 @@ class GameUI:
         self.computer_score = 0
         self.remaining_balls = 0
         self.setup_ui()
+
     def setup_ui(self):
-        tk.Label(self.window, text="NIM WARS", font=("Helvetica", 20),bg="#e8ede9", fg="#440c57"). pack(pady=20)
+        tk.Label(self.window, text="NIM WARS", font=("Helvetica", 20), bg="#e8ede9", fg="#440c57").pack(pady=20)
         self.score_label = tk.Label(self.window, text="Score:\nUser - 0\nComputer - 0", bg="#e8ede9", fg="#440c57")
         self.score_label.pack(pady=10)
         self.balls_entry = tk.Entry(self.window, font=("Helvetica", 12))
         self.balls_entry.pack(pady=10)
         tk.Button(self.window, text="Start Game", command=self.start_game, bg="#440c57", fg="white").pack(pady=5)
         tk.Button(self.window, text="reset Game", command=self.reset_game, bg="#440c57", fg="white").pack(pady=5)
-        tk.Button(self.window, text="Instructions", command=self.show_instructions, bg="#440c57", fg="white").pack(pady=5)
+        tk.Button(self.window, text="Instructions", command=self.show_instructions, bg="#440c57", fg="white").pack(
+            pady=5)
 
     def show_instructions(self):
         messagebox.showinfo("How to Play", "Remove 1-4 balls per turn. Avoid removing the last ball!")
@@ -60,13 +64,15 @@ class GameUI:
         def handle_turn():
             try:
                 user_input = int(user_input_entry.get())
-                if not (1 <= user_input <=4):
+                if not (1 <= user_input <= 4):
                     raise ValueError
                 self.remaining_balls -= user_input
                 turn_window.destroy()
                 self.update_game()
+                if self.remaining_balls > 0:
+                    self.computer_turn()  # Computer's turn follows user's turn
             except ValueError:
-                messagebox.showerror("Error","Entry number between 1 and 4.")
+                messagebox.showerror("Error", "Entry number between 1 and 4.")
 
         turn_window = tk.Toplevel(self.window)
         turn_window.title("Your Turn")
@@ -76,10 +82,17 @@ class GameUI:
         tk.Button(turn_window, text="Submit", command=handle_turn).pack(pady=5)
 
     def computer_turn(self):
-        balls_to_remove = min (self.remaining_balls, self.remaining_balls % 5 or random.randint(1, 4))
+        balls_to_remove = min(self.remaining_balls, self.remaining_balls % 5 or random.randint(1, 4))
         self.remaining_balls -= balls_to_remove
         messagebox.showinfo("computer's Turn", f"computer removed{balls_to_remove}balls.")
+        if self.remaining_balls <= 0:
+            self.computer_score += 1
+            self.update_score()
+            Balls(self.canvas, self.remaining_balls).draw()
+            messagebox.showinfo("Game Over", "Computer wins!")
+            return
         self.update_game()
+        self.user_turn()
 
     def update_game(self):
         Balls(self.canvas, self.remaining_balls).draw()
@@ -92,14 +105,13 @@ class GameUI:
                 winner = "Computer"
             self.update_score()
             messagebox.showinfo("Game Over", f"{winner} wins!")
-        else:
-            self.computer_turn() if self.remaining_balls % 2 == 0 else self.user_turn()
+            return
+
 
 class Balls:
     def __init__(self, canvas, total_balls):
         self.canvas = canvas
         self.total_balls = total_balls
-
 
     def draw(self):
         self.canvas.delete("balls")
@@ -108,28 +120,8 @@ class Balls:
             y = 20 + (i // 15) * 30
             self.canvas.create_oval(x, y, x + 20, y + 20, fill="#440c57", tags="balls")
 
+
 if __name__ == "__main__":
     game_window = GameWindow()
     game_ui = GameUI(game_window)
     game_window.start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
