@@ -16,6 +16,15 @@ Throughout this project, you have likely used outside resources. Reference all i
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
 
+Reeferences: 
+https://www.tutorialspoint.com/python/python_gui_programming.htm
+https://docs.python.org/3/library/tkinter.messagebox.html
+https://docs.python.org/3/library/random.html
+https://en.wikipedia.org/wiki/Nim
+https://realpython.com/python-gui-tkinter/
+https://docs.python.org/3/tutorial/
+https://docs.python.org/3/library/tkinter.html
+TA's: Gagan.
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -87,6 +96,12 @@ Indicate what percentage of the project you have left to complete and how confid
 ### ❗User Instructions
 In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
 in PyCharm. 
+After hitting the run button in pycharm, a window titled Game of Nim will open. In this game, your goal is to avoid taking 
+the last ball. Begin by entering number greater than or equal to 15 in the text box,representing the total number of balls for the game, 
+and click Start game. The balls will appear on the canvas, and the game begins. on your turn a popup will ask how many balls you want to 
+remove between 1 and 4, enter your choice and then click submit. After your turn the computer will play its turn. The game continues until
+there are no balls left, and the player who avoids taking the last ball wins. You can view scores in real time, reset the game using reset
+game button, or click instructions to review the rules. 
 
 ### ❗Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
@@ -101,3 +116,22 @@ In three to four well-written paragraphs, address the following (at a minimum):
 - What was the hardest part of the final project?
 - What would you do differently next time, knowing what you know now?
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
+
+I picked this project because I thought it would be fun to create a game that simple but also challenging. The Game of Nim seemed like a good
+choice because it involves strategy, and I wanted to learn more about programming games. It helped me learning how to make a graphical
+interface with TKinter. Working on this project helped me to do something that i really like and making something that people can enjoy too.
+
+I think my final projrct turned out pretty close to what I had planned. I wanted the game to be easy to use, withclearrule and simple 
+gameplay, and I think I accomplished that. The user can take turn, and the computer responds, which works just as i imagined. I wnated to
+add extra features but I am happy with how the game turned out.
+
+One of the biggest thing that i learned was how important it is to test your program a lot. I realized separating the logic of the game
+from the graphical part would make tasting easier, so I'll keep that in mind for future projects. I also learned more about TKinter and 
+how to handle user input. Making sure the program ran smoothly took a lot of trial and error, but it taught me how to stay patient and 
+keep trying.
+
+The hardest part was figuring out how to test the game logic without replying on the graphical interface. it was trickly to make sure 
+everything worked while alo dealing TKinter. Next time I'd design the dame's logic separetely from the start so it would be easier to test 
+and improve. I'd also plan my time better so i could add more features. Overall, this project taught me a lot about progamming and how to
+solve problems step by step.
+
